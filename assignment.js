@@ -48,8 +48,44 @@ function perfectNo(no) {
 // The longest palindromic substring is not guaranteed to be unique; for example, in the string "abracadabra", there is no palindromic
 // substring with length greater than three, but there are two palindromic substrings with length three, namely, "aca" and "ada".
 
-function functionName() {
+
+
+function palindrome (str) {
+  var j = str.length, flag = 0;
+
+  for (var i = 0; i < str.length / 2; i++) {
+    if (str[i] === str[j-i-1]) {
+      flag = 1;
+    } else {
+      flag = 0;
+      return false;
+    }
+  }
+
+  if (flag) {
+    return 1;
+  }
+}
+
+
+
+function functionName(str) {
   // Start here
+  var maxLength = 1, k, Start = 0, end = 1;
+  str = str.split('');
+
+
+  for (var i = 2; i <= str.length; i++) {
+
+    for (var j = 0; j <= str.length - i; j++) {
+      if (palindrome(str.slice(j, i))) {
+        maxLength = i;
+        star = j, end = i + j - 1;
+      }
+    }
+  }
+  result = str.splice(start, end);
+  console.log('maxLength palindrome substring is', result.join(''), result.length);
 }
 
 // 4. Write a JavaScript function to check whether an `input` is a date object or not.
