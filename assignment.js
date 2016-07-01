@@ -53,7 +53,7 @@ function perfectNo(no) {
 function palindrome (str) {
   var j = str.length, flag = 0;
 
-  for (var i = 0; i < str.length / 2; i++) {
+  for (var i = 0; i <  str.length / 2; i++) {
     if (str[i] === str[j-i-1]) {
       flag = 1;
     } else {
@@ -69,7 +69,7 @@ function palindrome (str) {
 
 
 
-function functionName(str) {
+function find_Palindrome(str) {
   // Start here
   var maxLength = 1, k, Start = 0, end = 1;
   str = str.split('');
@@ -78,13 +78,13 @@ function functionName(str) {
   for (var i = 2; i <= str.length; i++) {
 
     for (var j = 0; j <= str.length - i; j++) {
-      if (palindrome(str.slice(j, i))) {
+      if (palindrome(str.slice(j, j + i))) {
         maxLength = i;
-        star = j, end = i + j - 1;
+        start = j, end = i + j - 1;
       }
     }
   }
-  result = str.splice(start, end);
+  result = str.splice(start, end + 1);
   console.log('maxLength palindrome substring is', result.join(''), result.length);
 }
 
